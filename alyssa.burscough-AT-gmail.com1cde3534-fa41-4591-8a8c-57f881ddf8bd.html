@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en-us" dir="ltr">
+ <head> 
+  <link rel="stylesheet" href="/templates/tmeamainsite/css/template_20160908.css" type="text/css"> 
+  <!--[if lt IE 7]>
+            <style type="text/css">
+                    #subMenusContainer li, #nav li{
+                            /*margin-bottom:-0.99em;*/
+                    }
+                    #subMenusContainer li a{
+                            position:relative;
+                    }
+            </style>
+            <![endif]--> 
+  <base href="https://www.tmea.org/programs/jobs/resume"> 
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"> 
+  <meta name="generator" content="Joomla! - Open Source Content Management"> 
+  <title>Résumé Database Search</title> 
+  <link href="/templates/tmeamainsite/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon"> 
+  <link href="/media/com_finder/css/finder.css" rel="stylesheet" type="text/css"> 
+  <script src="/media/jui/js/jquery.min.js" type="text/javascript"></script> 
+  <script src="/media/jui/js/jquery-noconflict.js" type="text/javascript"></script> 
+  <script src="/media/jui/js/jquery-migrate.min.js" type="text/javascript"></script> 
+  <script src="/media/system/js/caption.js" type="text/javascript"></script> 
+  <script src="/media/system/js/mootools-core.js" type="text/javascript"></script> 
+  <script src="/media/system/js/core.js" type="text/javascript"></script> 
+  <script src="/media/jui/js/bootstrap.min.js" type="text/javascript"></script> 
+  <script type="text/javascript">
+jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});jQuery(function($){ $(".hasTooltip").tooltip({"html": true,"container": "body"}); });
+jQuery(document).ready(function() {
+	var value, searchword = jQuery('#mod-finder-searchword');
+
+		// Get the current value.
+		value = searchword.val();
+
+		// If the current value equals the default value, clear it.
+		searchword.on('focus', function ()
+		{
+			var el = jQuery(this);
+
+			if (el.val() === 'Search ...')
+			{
+				el.val('');
+			}
+		});
+
+		// If the current value is empty, set the previous value.
+		searchword.on('blur', function ()
+		{
+			var el = jQuery(this);
+
+			if (!el.val())
+			{
+				el.val(value);
+			}
+		});
+
+		jQuery('#mod-finder-searchform').on('submit', function (e)
+		{
+			e.stopPropagation();
+			var advanced = jQuery('#mod-finder-advanced');
+
+			// Disable select boxes with no value selected.
+			if (advanced.length)
+			{
+				advanced.find('select').each(function (index, el)
+				{
+					var el = jQuery(el);
+
+					if (!el.val())
+					{
+						el.attr('disabled', 'disabled');
+					}
+				});
+			}
+		});});
+	</script> 
+  <script type="text/javascript" src="/templates/tmeamainsite/js/MenuMatic_0.68.3-TMEA.js"></script> 
+  <script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		ga('create', 'UA-17310677-1', 'auto');
+		ga('send', 'pageview');
+		
+	</script> 
+  <link rel="icon" sizes="192x192" href="/touch-icon-192x192.png"> 
+  <link href="https://plus.google.com/108489040808271278327/" rel="publisher"> 
+  <meta property="fb:admins" content="1530787061"> 
+ </head> 
+ <body onload="if (document.getElementById('password_text')) {
+                        document.getElementById('password_text').style.display = 'block';
+                        document.getElementById('password_site').style.display = 'none';
+                    }"> 
+  <div id="skip"> 
+   <a href="#mainmenu">Skip to Navigation</a> 
+   <a href="#content">Skip to Main Content</a> 
+  </div> 
+  <div id="body"> 
+   <div id="header"> 
+    <div id="topheader"> 
+     <div id="headerlogo">
+      <a href="/" title="Return to Home Page"><img src="/templates/tmeamainsite/images/header_logo.png" alt="TMEA Logo" width="120" height="120">Texas Music<br>Educators Association<br><span class="subheaderlogo">promoting excellence in music education since 1920</span></a>
+     </div> 
+     <div id="sitesearch"> 
+      <div id="sitesearch-inner"> 
+       <form id="mod-finder-searchform" action="/search" method="get" class="form-search"> 
+        <div class="finder"> 
+         <label for="mod-finder-searchword" class="element-invisible finder">Search</label>
+         <input type="text" name="q" id="mod-finder-searchword" class="search-query input-medium" size="25" value="" placeholder="Search TMEA.org">
+         <input type="image" class="button" src="/templates/tmeamainsite/images/searchButton.gif" alt="Search" title="Search"> 
+        </div> 
+       </form> 
+      </div> 
+     </div> 
+     <div id="sitelogin"> 
+      <div id="sitelogin-inner"> 
+       <form action="https://www.tmea.org/login" method="post" name="login" id="login" novalidate> 
+        <div class="sitelogin"> 
+         <label title="Member ID" for="username_site"><input name="username" id="username_site" alt="Username" class="inputbox" type="email" size="8" value="Username" onblur="if (this.value == '')
+                                                                this.value = 'Username';" onFocus="if (this.value == 'Username')
+                                                                            this.value = '';" style="width: 5em; margin-right: 5px;" title="TMEA Username" required></label> 
+         <label title="Password" for="password_site"><input name="password" id="password_site" maxlength="20" alt="Password" class="inputbox" type="password" size="8" onBlur="if (this.value == '') {
+                                                                document.getElementById('password_text').style.display = 'block'; this.style.display = 'none';}" style="width: 5em;" title="Password" required></label> 
+         <label title="Password View" for="password_text"><input name="password_text" id="password_text" maxlength="20" alt="Password" class="inputbox" type="text" size="8" value="Password" onFocus="document.getElementById('password_site').style.display = 'block'; this.style.display = 'none'; document.getElementById('password_site').focus();" style="display: none; width: 5em;" title="Password View"></label> 
+         <input type="image" value="Log In" class="button" src="/templates/tmeamainsite/images/searchButton.gif" alt="Log In" title="Log In"> 
+         <input type="hidden" name="doc" value="https://www.tmea.org/programs/jobs/resume?rid=690"> 
+         <input type="hidden" name="submit" value="Log In"> 
+        </div> 
+       </form> 
+      </div> 
+     </div> 
+     <ul class="nav menu" id="top-menu"> 
+      <li class="item-2"><a href="/about">About TMEA</a></li>
+      <li class="item-3"><a href="/about/board-staff">Board/Staff</a></li>
+      <li class="item-4"><a href="/about/contact">Contact</a></li>
+      <li class="item-5"><a href="/programs/jobs">Job Services</a></li>
+     </ul> 
+     <div class="float-clear"></div> 
+    </div> 
+    <div id="mainmenu"> 
+     <ul class="nav menu" id="main-menu"> 
+      <li class="item-8 deeper parent"><a href="/membership">Membership</a>
+       <ul class="nav-child unstyled small">
+        <li class="item-14"><a href="/membership/renew">Renew Existing Membership</a></li>
+        <li class="item-12"><a href="/membership/join">Become a New TMEA Member</a></li>
+        <li class="item-610"><a href="/membership">Membership/Preregistration Overview</a></li>
+        <li class="item-299"><a href="/membership/pre-registration-only">Convention Registration/Purchase Items</a></li>
+        <li class="item-298"><a href="/membership/out-of-state-convention-registration">Out-of-State Convention Registration</a></li>
+        <li class="item-350"><a href="/membership/card">Membership Card &amp; Receipt</a></li>
+        <li class="item-339"><a href="/membership/information-update">Update Personal Information</a></li>
+        <li class="item-10"><a href="/membership/categories">Membership Levels</a></li>
+        <li class="item-225"><a href="/membership/membership-benefits">Membership Benefits</a></li>
+        <li class="item-147"><a href="/membership/directory">Membership Directory</a></li>
+        <li class="item-321"><a href="/membership/report">Ten-Year Membership Report</a></li>
+       </ul></li>
+      <li class="item-18 deeper parent"><a href="/divisions-regions">Divisions &amp; Regions</a>
+       <ul class="nav-child unstyled small">
+        <li class="item-33 deeper parent"><a href="/divisions-regions/band">Band</a>
+         <ul class="nav-child unstyled small">
+          <li class="item-879"><a href="/divisions-regions/band/volunteer">Volunteer to Help</a></li>
+          <li class="item-39 deeper parent"><a href="/divisions-regions/band/all-state">All-State</a>
+           <ul class="nav-child unstyled small">
+            <li class="item-325"><a href="/programs/all-state/eligibility">Eligibility Requirements</a></li>
+            <li class="item-41"><a href="/divisions-regions/band/audition-material">Audition Material</a></li>
+            <li class="item-49"><a href="/divisions-regions/band/jazz">All-State Jazz</a></li>
+            <li class="item-37"><a href="/divisions-regions/auditions">Audition Entry</a></li>
+            <li class="item-893"><a href="/programs/all-state/homeschool-students">Homeschool Students</a></li>
+            <li class="item-44"><a href="/divisions-regions/band/area-auditions">Area Auditions</a></li>
+            <li class="item-47"><a href="/divisions-regions/band/instrumentation">Instrumentation</a></li>
+            <li class="item-329"><a href="/about/appeals">Appeals</a></li>
+           </ul></li>
+          <li class="item-710"><a href="/divisions-regions/auditions">Audition Entry</a></li>
+          <li class="item-52 deeper parent"><a href="/divisions-regions/band/honor-band">Honor Band</a>
+           <ul class="nav-child unstyled small">
+            <li class="item-295"><a href="/divisions-regions/band/honor-band/rules">Rules &amp; Entry</a></li>
+            <li class="item-244"><a href="/divisions-regions/band/honor-band/history">Results History</a></li>
+            <li class="item-330"><a href="/about/appeals">Appeals</a></li>
+           </ul></li>
+          <li class="item-59"><a href="/divisions-regions/band/marching-band-philosophy">Marching Band Philosophy</a></li>
+          <li class="item-573"><a href="/divisions-regions/regions/resources">Region Chair Resources</a></li>
+          <li class="item-987"><a href="/divisions-regions/band/invited-jazz">Convention HS Jazz Band Application</a></li>
+         </ul></li>
+        <li class="item-72 deeper parent"><a href="/divisions-regions/orchestra">Orchestra</a>
+         <ul class="nav-child unstyled small">
+          <li class="item-74"><a href="/divisions-regions/orchestra/volunteer">Volunteer to Help</a></li>
+          <li class="item-76 deeper parent"><a href="/divisions-regions/orchestra/all-state">All-State</a>
+           <ul class="nav-child unstyled small">
+            <li class="item-327"><a href="/programs/all-state/eligibility">Eligibility Requirements</a></li>
+            <li class="item-86"><a href="/divisions-regions/orchestra/audition-material">Audition Material</a></li>
+            <li class="item-96"><a href="/divisions-regions/auditions">Audition Entry</a></li>
+            <li class="item-894"><a href="/programs/all-state/homeschool-students">Homeschool Students</a></li>
+            <li class="item-88"><a href="/divisions-regions/orchestra/audition-material/area-cuts">All-State Recording Cuts</a></li>
+            <li class="item-90"><a href="/divisions-regions/orchestra/instrumentation">Instrumentation</a></li>
+            <li class="item-78"><a href="/programs/all-state/audition-results">Area Audition Results</a></li>
+            <li class="item-331"><a href="/about/appeals">Appeals</a></li>
+           </ul></li>
+          <li class="item-711"><a href="/divisions-regions/auditions">Audition Entry</a></li>
+          <li class="item-93 deeper parent"><a href="/divisions-regions/orchestra/honor-orchestra">Honor Orchestra</a>
+           <ul class="nav-child unstyled small">
+            <li class="item-335"><a href="/divisions-regions/orchestra/honor-orchestra/rules">Rules &amp; Entry</a></li>
+            <li class="item-247"><a href="/divisions-regions/orchestra/honor-orchestra/history">History</a></li>
+            <li class="item-332"><a href="/about/appeals">Appeals</a></li>
+           </ul></li>
+          <li class="item-574"><a href="/divisions-regions/regions/resources">Region Chair Resources</a></li>
+         </ul></li>
+        <li class="item-98 deeper parent"><a href="/divisions-regions/vocal">Vocal</a>
+         <ul class="nav-child unstyled small">
+          <li class="item-100"><a href="/divisions-regions/vocal/volunteer">Volunteer to Help</a></li>
+          <li class="item-101 deeper parent"><a href="/divisions-regions/vocal/all-state">All-State</a>
+           <ul class="nav-child unstyled small">
+            <li class="item-326"><a href="/programs/all-state/eligibility">Eligibility Requirements</a></li>
+            <li class="item-1179"><a href="/divisions-regions/vocal/all-state/small-school-mixed-choir">Small-School Mixed Choir</a></li>
+            <li class="item-103"><a href="/divisions-regions/vocal/audition-material">Audition Material</a></li>
+            <li class="item-113"><a href="/divisions-regions/auditions">Audition Entry</a></li>
+            <li class="item-895"><a href="/programs/all-state/homeschool-students">Homeschool Students</a></li>
+            <li class="item-105"><a href="/divisions-regions/vocal/area-auditions">Area Auditions</a></li>
+            <li class="item-107"><a href="/divisions-regions/vocal/instrumentation">Instrumentation/Voicing</a></li>
+            <li class="item-333"><a href="/about/appeals">Appeals</a></li>
+           </ul></li>
+          <li class="item-712"><a href="/divisions-regions/auditions">Audition Entry</a></li>
+          <li class="item-109 deeper parent"><a href="/divisions-regions/vocal/invited-choir">Convention Performing Choirs</a>
+           <ul class="nav-child unstyled small">
+            <li class="item-302"><a href="/divisions-regions/vocal/invited-choir">Apply to Perform</a></li>
+            <li class="item-303"><a href="/divisions-regions/vocal/invited-choir/selected-choirs">Selected Choirs</a></li>
+           </ul></li>
+          <li class="item-575"><a href="/divisions-regions/regions/resources">Region Chair Resources</a></li>
+         </ul></li>
+        <li class="item-117 deeper parent"><a href="/divisions-regions/elementary">Elementary</a>
+         <ul class="nav-child unstyled small">
+          <li class="item-121"><a href="/divisions-regions/elementary/volunteer">Volunteer to Help</a></li>
+          <li class="item-129 deeper parent"><a href="/divisions-regions/elementary/performing-groups">Convention Performing Groups</a>
+           <ul class="nav-child unstyled small">
+            <li class="item-304"><a href="/divisions-regions/elementary/performing-groups">Apply to Perform</a></li>
+            <li class="item-305"><a href="/divisions-regions/elementary/performing-groups/selected-groups">Selected Groups</a></li>
+           </ul></li>
+          <li class="item-1389"><a href="/conventions/elementary-teachers">Convention: The Best Place to Learn</a></li>
+          <li class="item-124"><a href="/divisions-regions/elementary/workshops">Region Workshops</a></li>
+          <li class="item-576"><a href="/divisions-regions/regions/resources">Region Chair Resources</a></li>
+         </ul></li>
+        <li class="item-133 deeper parent"><a href="/divisions-regions/college">College</a>
+         <ul class="nav-child unstyled small">
+          <li class="item-887"><a href="/divisions-regions/college/volunteer">Volunteer to Help</a></li>
+          <li class="item-137"><a href="/divisions-regions/college/committees">Committees</a></li>
+          <li class="item-150"><a href="/divisions-regions/college/call-for-papers">Call for Papers</a></li>
+          <li class="item-155"><a href="/divisions-regions/college/texes-review">TExES Information &amp; Review</a></li>
+          <li class="item-585"><a href="/resources/teaching-resources/research">Texas Music Education Research</a></li>
+          <li class="item-603"><a href="/industry/exhibit-show/2017/college-fair">College Fair &amp; College Night</a></li>
+          <li class="item-1375"><a href="/divisions-regions/college/fall-conference">Fall Conference</a></li>
+          <li class="item-1738"><a href="/divisions-regions/college/collegiate-music-educator-award">Collegiate Music Educator Award</a></li>
+         </ul></li>
+        <li class="item-176 deeper parent"><a href="/divisions-regions/regions">Regions</a>
+         <ul class="nav-child unstyled small">
+          <li class="item-234"><a href="/divisions-regions/regions/alignment">Region Alignment</a></li>
+          <li class="item-242"><a href="/divisions-regions/regions/officers">Region Officers</a></li>
+          <li class="item-178"><a href="/divisions-regions/regions/meetings">Region Meetings</a></li>
+          <li class="item-227"><a href="/divisions-regions/regions/calendars">Region Calendars</a></li>
+          <li class="item-201"><a href="/divisions-regions/regions/resources">Region Chair Resources</a></li>
+          <li class="item-605"><a href="/divisions-regions/regions/resources/state-board">State Board Resources</a></li>
+         </ul></li>
+       </ul></li>
+      <li class="item-20 alias-parent-active deeper parent"><a href="/programs">Programs</a>
+       <ul class="nav-child unstyled small">
+        <li class="item-81 alias-parent-active deeper parent"><a href="/programs/jobs">Job Services</a>
+         <ul class="nav-child unstyled small">
+          <li class="item-313"><a href="/programs/jobs/submit">Submit a Vacancy</a></li>
+          <li class="item-314 current active"><a href="/programs/jobs/resume">Search for Resumes</a></li>
+          <li class="item-312"><a href="/programs/jobs/search">Search for Vacancies</a></li>
+          <li class="item-376"><a href="/programs/jobs/resume/new">Submit a Resume</a></li>
+          <li class="item-1642"><a href="/programs-mm/job-services-mm/resume-and-interview-tips">Resume and Interview Tips</a></li>
+         </ul></li>
+        <li class="item-174"><a href="/programs/mentoring-network">Mentoring Network</a></li>
+        <li class="item-199 deeper parent"><a href="/programs/all-state">Texas All-State</a>
+         <ul class="nav-child unstyled small">
+          <li class="item-336"><a href="/programs/all-state/eligibility">Eligibility Requirements</a></li>
+          <li class="item-377"><a href="/divisions-regions/auditions">Audition Entry</a></li>
+          <li class="item-896"><a href="/programs/all-state/homeschool-students">Homeschool Students</a></li>
+          <li class="item-901"><a href="/programs/all-state/audition-results">Area Audition Results</a></li>
+          <li class="item-238"><a href="/programs/all-state/history">History Rosters</a></li>
+          <li class="item-221"><a href="/programs/all-state/recordings">All-State Recording Archives</a></li>
+          <li class="item-592"><a href="/programs/all-state/average-sat">All-State Average SAT Scores</a></li>
+         </ul></li>
+        <li class="item-172"><a href="/programs/tfme">Texas Future Music Educators</a></li>
+        <li class="item-167"><a href="/programs/tms">Texas Music Scholars</a></li>
+        <li class="item-170 deeper parent"><a href="/programs/scholarships">Scholarships</a>
+         <ul class="nav-child unstyled small">
+          <li class="item-1096"><a href="/programs/scholarships/donors">Scholarship Donors</a></li>
+         </ul></li>
+        <li class="item-745"><a href="/programs/adminaward">Distinguished Administrator Award</a></li>
+        <li class="item-197"><a href="/programs/boosters">Boosters</a></li>
+       </ul></li>
+      <li class="item-22 deeper parent"><a href="/industry">Music Industry</a>
+       <ul class="nav-child unstyled small">
+        <li class="item-162"><a href="/industry/advertising">Advertising</a></li>
+        <li class="item-135"><a href="/industry/exhibit-show/2017">Exhibiting</a></li>
+        <li class="item-1726"><a href="/industry/exhibit-show/2017/sponsorships">Sponsorships</a></li>
+        <li class="item-144"><a href="/industry/exhibit-show/2017/college-fair">College Fair &amp; College Night</a></li>
+        <li class="item-252"><a href="/industry/licensed-vendors">Licensed Vendor Directory</a></li>
+        <li class="item-254"><a href="/industry/directory">Exhibitor Directory</a></li>
+        <li class="item-317"><a href="/industry/member-data">Purchase Member Data</a></li>
+       </ul></li>
+      <li class="item-24 deeper parent"><a href="/conventions">Convention</a>
+       <ul class="nav-child unstyled small">
+        <li class="item-1510"><a href="/conventions/2017">2017 Convention</a></li>
+        <li class="item-1373"><a href="/conventions/2016">2016 Convention</a></li>
+        <li class="item-577"><a href="/conventions/2017/proposals">Propose a Clinic or Showcase</a></li>
+        <li class="item-141"><a href="/industry/exhibit-show/2016">Exhibiting</a></li>
+        <li class="item-143"><a href="/industry/exhibit-show/2017/college-fair">College Fair &amp; College Night</a></li>
+        <li class="item-774"><a href="/conventions/cpe">CPE Records</a></li>
+        <li class="item-56"><a href="/conventions/future-dates">Future Convention Dates</a></li>
+        <li class="item-378"><a href="/conventions/attendance-history">Convention Attendance</a></li>
+       </ul></li>
+      <li class="item-26 deeper parent"><a href="/resources">Resources</a>
+       <ul class="nav-child unstyled small">
+        <li class="item-546 deeper parent"><a href="/resources/music-education-in-the-law">Music Education in the Law</a>
+         <ul class="nav-child unstyled small">
+          <li class="item-562"><a href="/resources/music-education-in-the-law/what-the-law-says">What the Law Says</a></li>
+          <li class="item-547"><a href="/resources/music-education-in-the-law/legislation">Legislation</a></li>
+          <li class="item-548"><a href="/resources/music-education-in-the-law/state-board-rule">State Board Rule</a></li>
+         </ul></li>
+        <li class="item-550 deeper parent"><a href="/resources/advocacy">Music Education Advocacy</a>
+         <ul class="nav-child unstyled small">
+          <li class="item-749"><a href="/resources/advocacy/local-advocacy">Be a Music Education Advocate</a></li>
+          <li class="item-554"><a href="/resources/advocacy/materials">Advocacy Materials for Distribution</a></li>
+         </ul></li>
+        <li class="item-556 deeper parent"><a href="/resources/teaching-resources">Teaching Resources</a>
+         <ul class="nav-child unstyled small">
+          <li class="item-559"><a href="/programs/mentoring-network">Mentoring Network</a></li>
+          <li class="item-1362"><a href="/resources/teaching-resources/music-teks">Music TEKS</a></li>
+          <li class="item-558"><a href="/resources/teaching-resources/music-curriculum">TMEA/TMAC K–12 Music Curriculum</a></li>
+          <li class="item-1701"><a href="/resources/teaching-resources/educator-toolkit/tips">Tips for New Teachers</a></li>
+          <li class="item-596"><a href="/resources/teaching-resources/educator-toolkit">Music Educator Toolkit</a></li>
+          <li class="item-560"><a href="/resources/teaching-resources/q-a-a/answer-display">Q&amp;A for Teachers</a></li>
+          <li class="item-194"><a href="/resources/teaching-resources/research">Texas Music Education Research</a></li>
+         </ul></li>
+        <li class="item-217"><a href="/resources/southwestern-musician">Southwestern Musician</a></li>
+        <li class="item-1376"><a href="/resources/teaching-resources/research">Texas Music Education Research</a></li>
+        <li class="item-608"><a href="/about/policies">TMEA Policies</a></li>
+       </ul></li>
+     </ul> 
+     <div class="float-clear"></div> 
+     <script type="text/javascript">
+                            window.addEvent('domready', function () {
+                                var myMenu = new MenuMatic({id: "main-menu", duration: 400, hideDelay: 1200, matchWidthMode: true, opacity: 99});
+                            });
+                        </script> 
+     <div class="float-clear"></div> 
+    </div> 
+   </div> 
+   <div id="content"> 
+    <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb"> 
+     <li class="active"> <span class="divider icon-location"></span> </li> 
+     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"> <a itemprop="item" href="/" class="pathway"><span itemprop="name">TMEA Home</span></a> <span class="divider"> <img src="/media/system/images/arrow.png" alt=""> </span> 
+      <meta itemprop="position" content="1"> </li> 
+     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"> <a itemprop="item" href="/programs" class="pathway"><span itemprop="name">Programs &amp; Services</span></a> <span class="divider"> <img src="/media/system/images/arrow.png" alt=""> </span> 
+      <meta itemprop="position" content="2"> </li> 
+     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"> <a itemprop="item" href="/programs/jobs" class="pathway"><span itemprop="name">Job Services</span></a> <span class="divider"> <img src="/media/system/images/arrow.png" alt=""> </span> 
+      <meta itemprop="position" content="3"> </li> 
+     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active"> <span itemprop="name"> Resume Search </span> 
+      <meta itemprop="position" content="4"> </li> 
+    </ul> 
+    <div class="item-page" itemscope itemtype="https://schema.org/Article"> 
+     <meta itemprop="inLanguage" content="en-US"> 
+     <div class="page-header"> 
+      <h1 itemprop="name">Résumé Database Search</h1> 
+     </div> 
+     <div itemprop="articleBody"> 
+      <p><strong><a href="javascript:history.go(-1)">Return to results</a> | <a href="https://www.tmea.org/programs/jobs/resume">New search</a></strong></p> 
+      <hr> 
+      <table border="0"> 
+       <tbody>
+        <tr> 
+         <td align="right" valign="top" nowrap><strong>Name:</strong></td> 
+         <td valign="top">Alyssa Burscough</td> 
+         <td align="right" valign="top" nowrap><strong>Years of Experience:</strong></td> 
+         <td valign="top">0</td> 
+        </tr> 
+        <tr> 
+         <td align="right" valign="top" nowrap><strong>Email:</strong></td> 
+         <td valign="top"><a href="mailto:alyssa.burscough@gmail.com">alyssa.burscough@gmail.com</a></td> 
+         <td align="right" valign="top" nowrap><strong>Specific Field:</strong></td> 
+         <td valign="top">Vocal</td> 
+        </tr> 
+        <tr> 
+         <td align="right" valign="top" nowrap><strong>Phone:</strong></td> 
+         <td valign="top">512-450-4411</td> 
+         <td align="right" valign="top" nowrap><strong>Desired Level(s):</strong></td> 
+         <td valign="top">MS, HS</td> 
+        </tr> 
+        <tr> 
+         <td align="right" valign="top" nowrap><strong>Address:</strong></td> 
+         <td valign="top"><br>Dallas, TX </td> 
+         <td align="right" valign="top" nowrap><strong>Desired Position(s):</strong></td> 
+         <td valign="top">Assistant</td> 
+        </tr> 
+        <tr> 
+         <td align="right" valign="top" nowrap><strong>Posting Date:</strong></td> 
+         <td valign="top">02/01/2017</td> 
+         <td align="right" valign="top" nowrap><strong>Specialty Area(s):</strong></td> 
+         <td valign="top">Vocal</td> 
+        </tr> 
+        <tr> 
+         <td align="right" valign="top" nowrap>&nbsp;</td> 
+         <td valign="top">&nbsp;</td> 
+         <td align="right" valign="top" nowrap><strong>Specific Specialty:</strong></td> 
+         <td valign="top">Soprano, Alto</td> 
+        </tr> 
+        <tr> 
+         <td align="right" valign="top" nowrap>&nbsp;</td> 
+         <td valign="top">&nbsp;</td> 
+         <td align="right" valign="top" nowrap><strong>Desired Location(s):</strong></td> 
+         <td valign="top">DFW Area</td> 
+        </tr> 
+       </tbody>
+      </table> 
+      <!--dynamic--> 
+     </div> 
+    </div> 
+    <div class="float-clear"></div> 
+   </div> 
+   <div id="footer"> 
+    <div id="footerleft"> 
+     <a href="http://www.twitter.com/TMEA" title="Follow TMEA on Twitter" target="_blank" class="social" style="background-position: -40px -48px;"></a> 
+     <a href="https://plus.google.com/+TmeaOrg" title="Circle TMEA on Google+" target="_blank" class="social" style="background-position: -40px -96px;"></a> 
+     <a href="http://www.facebook.com/tmea.org" title="Find TMEA on Facebook" target="_blank" class="social" style="background-position: -40px 0;"></a> 
+     <a href="/about/contact">1-888-318-TMEA</a> 
+    </div> © 2002-2017 Texas Music Educators Association 
+   </div> 
+  </div>   
+ </body>
+</html>
