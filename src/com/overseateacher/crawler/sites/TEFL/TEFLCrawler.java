@@ -94,7 +94,7 @@ public class TEFLCrawler extends WebCrawler {
                 s3Client.uploadFile("TEFL-Net/"+folder, fileName, file);
                 file.delete();
                 if(count%10 == 0)
-                    System.out.println(count+" pages have crawled");
+                    System.out.println(count+" pages have crawled"+"    TEFL");
                 count++;
             }catch (IOException e){
                 e.printStackTrace();

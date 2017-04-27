@@ -76,9 +76,10 @@ public class TMEACrawler extends WebCrawler {
                 Elements elements = doc.select(".error");
                 if(elements.size() != 0) {
                     String value = "";
-                    if(url.contains("rid=")) {
+                    String[] test = Configure.getProperties("tmea");
+                    if(url.contains("rid=") && !test[0].contains("error")) {
                         value = url.substring(url.lastIndexOf("=")+1);
-                        Configure.setProperties("tmea", value);
+                        Configure.setProperties("tmea", value+"error");
                     }
                     return;
                 }
@@ -118,7 +119,7 @@ public class TMEACrawler extends WebCrawler {
 //                }
 //                document.close();
                 if(count%10 == 0)
-                    System.out.println(count+" pages have crawled");
+                    System.out.println(count+" pages have crawled" + "    TMEA");
                 if(url.contains("rid=")) {
                     String value = url.substring(url.lastIndexOf("=")+1);
                     Configure.setProperties("tmea", value);

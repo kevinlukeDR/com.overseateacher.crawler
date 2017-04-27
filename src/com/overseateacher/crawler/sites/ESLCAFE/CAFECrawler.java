@@ -97,7 +97,7 @@ public class CAFECrawler extends WebCrawler {
                 s3Client.uploadFile("Dave-ESL-Cafe/"+folder, fileName, file);
                 file.delete();
                 if(count%10 == 0)
-                    System.out.println(count+" pages have crawled");
+                    System.out.println(count+" pages have crawled"+"    ESLCAFE");
                 count++;
             }catch (IOException e){
                 e.printStackTrace();

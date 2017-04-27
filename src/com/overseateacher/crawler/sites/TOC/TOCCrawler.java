@@ -97,7 +97,7 @@ public class TOCCrawler extends WebCrawler {
 //                }
 //                document.close();
                 if(count%10 == 0)
-                    System.out.println(count+" pages have crawled");
+                    System.out.println(count+" pages have crawled"+"   TOC");
                 count++;
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

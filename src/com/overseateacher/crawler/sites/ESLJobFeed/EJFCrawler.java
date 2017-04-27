@@ -85,7 +85,7 @@ public class EJFCrawler extends WebCrawler {
                 s3Client.uploadFile("ESL-Job-Feed/"+folder, fileName, file);
                 file.delete();
                 if(count%10 == 0)
-                    System.out.println(count+" pages have crawled");
+                    System.out.println(count+" pages have crawled" + "      EJF");
                 count++;
             }catch (IOException e){
                 e.printStackTrace();

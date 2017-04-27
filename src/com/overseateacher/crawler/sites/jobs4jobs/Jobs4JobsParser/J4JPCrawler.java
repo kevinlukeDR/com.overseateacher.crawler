@@ -105,7 +105,7 @@ public class J4JPCrawler extends WebCrawler {
                 s3Client.uploadFile("Jobs-4-Jobs/" + folder, fileName, file);
                 file.delete();
                 if (count % 10 == 0)
-                    System.out.println(count + " pages have crawled");
+                    System.out.println(count + " pages have crawled"+"    J4J");
                 count++;
 
 //                Elements elements = doc.select(".t3>tbody>tr>td");

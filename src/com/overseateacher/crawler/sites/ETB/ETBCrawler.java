@@ -89,7 +89,7 @@ public class ETBCrawler extends WebCrawler {
                 s3Client.uploadFile("ESL-Teachers-Board/"+folder, fileName, file);
                 file.delete();
                 if(count%10 == 0)
-                    System.out.println(count+" pages have crawled");
+                    System.out.println(count+" pages have crawled" +"    ETB");
                 count++;
             }catch (IOException e){
                 e.printStackTrace();

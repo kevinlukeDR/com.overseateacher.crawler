@@ -145,7 +145,7 @@ public class TMEATask implements ICrawlerTask {
         try {
             String str = "";
             String[] strings = Configure.getProperties("tmea");
-            int count = Integer.parseInt(strings[0]);
+            int count = Integer.parseInt(strings[0].replaceAll("error", ""));
             int to = count+50;
             while (count<= to) {
 //                if(count >4800){
