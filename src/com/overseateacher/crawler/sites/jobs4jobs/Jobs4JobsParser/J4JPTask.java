@@ -22,7 +22,7 @@ import java.net.MalformedURLException;
  */
 public class J4JPTask implements ICrawlerTask {
 
-    public final String taskname = "Jobs4jobs";
+    public final String taskname = "J4J";
     private File file = new File("");
     public final String rootPath = file.getAbsolutePath();
     CrawlController controller;

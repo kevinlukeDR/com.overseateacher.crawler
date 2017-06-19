@@ -204,9 +204,11 @@ public class CAFETask implements ICrawlerTask {
             String str = "";
             int count =0;
             BufferedReader br = new BufferedReader(new FileReader(rootPath+"/src/com/overseateacher/crawler/Documents/ESLCAFE/Cafe.csv"));
+            String username = Configure.getProperty("cafeusername");
+            String pass = Configure.getProperty("cafepassword");
             while ((str = br.readLine()) != null) {
 //                if(count >4800){
-                    String url = str+"&Username=jianxing&Password=teachoversea";
+                    String url = str+"&Username="+username+"&Password="+pass;
                     controller.addSeed(url);
 //                }
                 count++;
@@ -220,7 +222,7 @@ public class CAFETask implements ICrawlerTask {
      * will reach the line after this only when crawling is finished.
      */
         controller.start(CAFECrawler.class, numberOfCrawlers);
-
+//        controller.waitUntilFinish();
     }
 
 

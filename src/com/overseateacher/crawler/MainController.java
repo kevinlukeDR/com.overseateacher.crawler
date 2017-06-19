@@ -14,6 +14,7 @@ import com.overseateacher.crawler.sites.jobs4jobs.Jobs4JobsParser.J4JPTask;
 import com.overseateacher.crawler.sites.jobs4jobs.Jobs4jobsTask;
 import com.overseateacher.crawler.sites.jobspider.JSTask;
 import com.overseateacher.crawler.util.Configure;
+import edu.uci.ics.crawler4j.crawler.CrawlController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -54,47 +55,13 @@ public class MainController {
 
         List<ICrawlerTask> taskList = getCrawlerTasks();
 
-        Iterator<ICrawlerTask> taskIterator = taskList.iterator();
-
-        while (taskIterator.hasNext()) {
-            try {
-                ICrawlerTask task = taskIterator.next();
-                task.getController().waitUntilFinish();
-                logger.info(task.getName());
-            }catch (Exception e){
-                continue;
-            }
+        for (ICrawlerTask task: taskList) {
+            task.getController();
+            logger.info(task.getName());
         }
 
     }
 
-    private static void setProperties(){
-        Properties prop = new Properties();
-        OutputStream output = null;
-
-        try {
-
-            output = new FileOutputStream("config.properties");
-
-            // set the properties value
-            prop.setProperty("sites", "ESLCAFE");
-
-            // save properties to project root folder
-            prop.store(output, null);
-
-        } catch (IOException io) {
-            io.printStackTrace();
-        } finally {
-            if (output != null) {
-                try {
-                    output.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-        }
-    }
 
 
 

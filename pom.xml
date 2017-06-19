@@ -6,7 +6,7 @@
 
     <groupId>com.overseateacher</groupId>
     <artifactId>resumeCrawler</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>newcrawler-1.1</version>
 
 
     <properties>

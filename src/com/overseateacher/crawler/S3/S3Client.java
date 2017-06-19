@@ -17,8 +17,8 @@ import java.util.List;
  * Created by lu on 2017/1/3.
  */
 public class S3Client {
-    private static String accessKey = "AKIAJPDK3B7PDD5X34UQ";
-    private static String secretKey = " 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";
+    private static String accessKey = "AKIAIMLBVTSSJZF6HC4A";
+    private static String secretKey = " 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";
     private static AmazonS3 s3client;
     private static AWSCredentials credentials;
     private static final String SUFFIX = "/";
@@ -74,7 +74,7 @@ public class S3Client {
     public String getBucket(){
         List<Bucket> buckets = s3client.listBuckets();
 
-        return "esl-crawler";
+        return "new-esl-crawler";
     }
 }
 
